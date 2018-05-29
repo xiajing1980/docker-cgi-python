@@ -1,8 +1,11 @@
 # Docker file for python simple webservice build
 
-FROM ubuntu:16.10
+FROM ubuntu:17.04
 MAINTAINER Shohei Mukai
 
+# Change apt source to ustc mirrors
+Run sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn\/ubuntu-old-releases/g' /etc/apt/sources.list
+Run sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn\/ubuntu-old-releases/g' /etc/apt/sources.list
 Run apt-get update
 # Http
 Run apt-get -y install apache2
